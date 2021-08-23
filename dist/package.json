@@ -1,0 +1,11 @@
+{
+  "name": "sentry-promise-tracing",
+  "version": "1.0.0",
+  "description": "Sentry integration for tracking promises with unhandled rejections",
+  "repository": "git@github.com:1inuxoid/sentry-promise-tracing.git",
+  "author": "Dmytro Yurchenko <1inuxoid@whoyz.com>",
+  "license": "Apache-2.0",
+  "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
+  "sideEffects": false
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "lib": ["ES2020", "dom"],
+    "baseUrl": ".",
+    "outDir": "dist/lib/esm",
+    "declaration": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.spec.ts"]
+}

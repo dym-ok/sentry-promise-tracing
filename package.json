@@ -1,0 +1,42 @@
+{
+  "name": "sentry-promise-tracing",
+  "version": "1.0.0",
+  "description": "Sentry integration for tracking promises with unhandled rejections",
+  "main": "dist/index.js",
+  "repository": "git@github.com:1inuxoid/sentry-promise-tracing.git",
+  "author": "Dmytro Yurchenko <1inuxoid@whoyz.com>",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "build": "yarn tsc -p tsconfig.build.json && yarn tsc -p tsconfig.esm.json",
+    "test": "yarn jest",
+    "generate-package": "ppjg -o dist"
+  },
+  "devDependencies": {
+    "@sentry/core": "^6.11.0",
+    "@sentry/types": "^6.11.0",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^16.4.14",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jest": "24.4.0",
+    "eslint-plugin-jest-formatting": "3.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "1.1.4",
+    "jest": "^27.0.6",
+    "jest-date-mock": "^1.0.8",
+    "ppjg": "^1.0.0",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@sentry/core": "^6.0.0",
+    "@sentry/types": "^6.0.0",
+    "@types/jest": "^27.0.1"
+  }
+}
