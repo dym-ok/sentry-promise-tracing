@@ -80,13 +80,28 @@ describe('PromiseTracing integration', () => {
 });
 
 describe('withPromiseTracing', () => {
-  it('should put PromiseTracing integration before all the others', () => {
-    const someIntegration = { name: 'SomeIntegration' } as Integration;
-    const resultingIntegrations = withPromiseTracing([someIntegration]);
+  it('should put PromiseTracing integration before all the other integrations', () => {
+    const defaultIntegration = { name: 'DefaultIntegration' } as Integration;
+    const resultingIntegrations = withPromiseTracing()([defaultIntegration]);
 
     expect(resultingIntegrations).toHaveLength(2);
     expect(resultingIntegrations[0].name).toBe(PromiseTracing.id);
-    expect(resultingIntegrations[1]).toBe(someIntegration);
+    expect(resultingIntegrations[1]).toBe(defaultIntegration);
+  });
+
+  it('should put default integrations in between head and tail integrations', () => {
+    const headIntegration = { name: 'HeadIntegration' } as Integration;
+    const tailIntegration = { name: 'TailIntegration' } as Integration;
+    const defaultIntegration = { name: 'DefaultIntegration' } as Integration;
+    const resultingIntegrations = withPromiseTracing(
+      [headIntegration],
+      [tailIntegration]
+    )([defaultIntegration]);
+
+    expect(resultingIntegrations).toHaveLength(4);
+    expect(resultingIntegrations[1]).toBe(headIntegration);
+    expect(resultingIntegrations[2]).toBe(defaultIntegration);
+    expect(resultingIntegrations[3]).toBe(tailIntegration);
   });
 });
 

@@ -32,8 +32,16 @@ export function nodeHandler(_error: Error, promise: Promise<never>): void {
   addBreadcrumb(getPromiseBreadcrumb(promise as PatchedPromise<never>));
 }
 
-export function withPromiseTracing(integrations: Integration[]): Integration[] {
-  return [new PromiseTracing(), ...integrations];
+export function withPromiseTracing(
+  headIntegrations: Integration[] = [],
+  tailIntegrations: Integration[] = []
+): (Integration: Integration[]) => Integration[] {
+  return (integrations: Integration[]) => [
+    new PromiseTracing(),
+    ...headIntegrations,
+    ...integrations,
+    ...tailIntegrations,
+  ];
 }
 
 export class PromiseTracing implements Integration {
