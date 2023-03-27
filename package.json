@@ -1,6 +1,6 @@
 {
   "name": "sentry-promise-tracing",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sentry integration for tracking promises with unhandled rejections",
   "main": "dist/index.js",
   "repository": "git@github.com:1inuxoid/sentry-promise-tracing.git",
@@ -13,8 +13,8 @@
     "generate-package": "ppjg -o dist"
   },
   "devDependencies": {
-    "@sentry/core": "^6.11.0",
-    "@sentry/types": "^6.11.0",
+    "@sentry/core": "^7.45.0",
+    "@sentry/types": "^7.45.0",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^16.4.14",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
@@ -35,8 +35,8 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "@sentry/core": "^6.0.0",
-    "@sentry/types": "^6.0.0",
+    "@sentry/core": "^7.45.0",
+    "@sentry/types": "^7.45.0",
     "@types/jest": "^27.0.1"
   }
 }

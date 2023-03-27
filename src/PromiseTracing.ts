@@ -1,6 +1,6 @@
 import { addBreadcrumb } from '@sentry/core';
-import { Breadcrumb, Integration, Severity } from '@sentry/types';
-import { isBrowser, isNode } from './helpers';
+import { Breadcrumb, Integration } from '@sentry/types';
+import { ERROR_SEVERITY, isBrowser, isNode } from './helpers';
 
 export class PatchedPromise<T> extends Promise<T> {
   public readonly stack?: string;
@@ -19,7 +19,7 @@ function getPromiseBreadcrumb(promise: PatchedPromise<never>): Breadcrumb {
     type: 'error',
     message: 'Rejected promise',
     category: 'promise',
-    level: Severity.Error,
+    level: ERROR_SEVERITY,
     data: { stack, timestamp },
   };
 }
