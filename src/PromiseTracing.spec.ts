@@ -10,7 +10,9 @@ jest.mock('./helpers', () => ({
   isNode: mockIsNode,
 }));
 
-import { Integration, Severity } from '@sentry/types';
+import { Integration } from '@sentry/types';
+import { ERROR_SEVERITY } from './helpers';
+
 import {
   browserHandler,
   nodeHandler,
@@ -121,7 +123,7 @@ describe('browserHandler', () => {
       type: 'error',
       message: 'Rejected promise',
       category: 'promise',
-      level: Severity.Error,
+      level: ERROR_SEVERITY,
       data: {
         stack: 'Some error stack',
         timestamp: 0,
@@ -144,7 +146,7 @@ describe('nodeHandler', () => {
       type: 'error',
       message: 'Rejected promise',
       category: 'promise',
-      level: Severity.Error,
+      level: ERROR_SEVERITY,
       data: {
         stack: 'Some error stack',
         timestamp: 0,
